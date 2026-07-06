@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroMarket | Premium Direct Farm Produce</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dark-design">
+    <div class="ambient-background">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <!-- Ticker -->
+    <div class="price-ticker">
+        <div class="ticker-content" id="tickerContent">
+            <!-- Populated by JS -->
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="brand">
+                <i class="fa-solid fa-leaf"></i> Agro<span>Market</span>
+            </a>
+            <div class="nav-links">
+                <a href="#discover" class="nav-link">Discover</a>
+                <a href="#farmers" class="nav-link">Farmers</a>
+                <a href="#about" class="nav-link">Our Story</a>
+            </div>
+            <div class="nav-actions">
+                <button class="icon-btn search-btn" aria-label="Search">
+                    <i class="fa-solid fa-search"></i>
+                </button>
+                <div class="cart-wrapper">
+                    <button class="icon-btn cart-btn" id="openCartBtn" aria-label="Cart">
+                        <i class="fa-solid fa-shopping-bag"></i>
+                        <span class="cart-badge" id="cartBadge">0</span>
+                    </button>
+                </div>
+                <button class="btn btn-primary login-btn">Sign In</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Side Cart -->
+    <div class="cart-overlay" id="cartOverlay"></div>
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h3>Your Harvest</h3>
+            <button class="icon-btn close-cart" id="closeCartBtn">
+                <i class="fa-solid fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cartItems">
+            <!-- Cart items injected here -->
+            <div class="empty-cart-msg">
+                <i class="fa-solid fa-basket-shopping"></i>
+                <p>Your basket is empty</p>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total</span>
+                <span id="cartTotalValue">₹0.00</span>
+            </div>
+            <button class="btn btn-primary checkout-btn" id="checkoutBtn" disabled>Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-container">
+            <div class="hero-text" data-aos="fade-up">
+                <div class="badge">🌿 100% Organic Promise</div>
+                <h1 class="title">Farm Fresh.<br><span>Directly to You.</span></h1>
+                <p class="subtitle">Experience the taste of nature. We connect you directly with local farmers, ensuring the freshest produce while supporting local agriculture.</p>
+                <div class="hero-cta">
+                    <a href="#discover" class="btn btn-primary btn-large">Shop Produce <i class="fa-solid fa-arrow-right"></i></a>
+                    <button class="btn btn-outline btn-large"><i class="fa-solid fa-play"></i> Watch Story</button>
+                </div>
+            </div>
+            <div class="hero-visual" data-aos="fade-left">
+                <div class="floating-cards">
+                    <div class="float-card card-1">
+                        <img src="https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Fresh Carrots">
+                        <div class="float-card-info">
+                            <h4>Organic Carrots</h4>
+                            <div class="rating"><i class="fa-solid fa-star"></i> 4.9</div>
+                        </div>
+                    </div>
+                    <div class="float-card card-2">
+                        <img src="https://images.unsplash.com/photo-1574484284002-952d92456975?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Fresh Apples">
+                        <div class="float-card-info">
+                            <h4>Crisp Apples</h4>
+                            <div class="rating"><i class="fa-solid fa-star"></i> 4.8</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image-main">
+                    <img src="https://images.unsplash.com/photo-1488459716781-31db52582fe9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Farmer holding fresh produce">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Categories Section -->
+        <section class="categories-section" id="shopping-section">
+            <div class="section-container">
+                <div class="categories-track">
+                    <button class="category-pill active" data-category="all">All Produce</button>
+                    <button class="category-pill" data-category="vegetables">🥬 Vegetables</button>
+                    <button class="category-pill" data-category="fruits">🍎 Fruits</button>
+                    <button class="category-pill" data-category="dairy">🥛 Dairy & Eggs</button>
+                    <button class="category-pill" data-category="honey">🍯 Honey & Pantry</button>
+                    <button class="category-pill" data-category="meat">🥩 Pasture Meat</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Recommended Section (ML Output Target) -->
+        <section class="products-section" id="discover">
+            <div class="section-container">
+                <div class="section-header" data-aos="fade-up">
+                    <div class="header-content">
+                        <h2>Curated <span>For You</span></h2>
+                        <p>Personalized recommendations based on your taste and season.</p>
+                    </div>
+                    <a href="#" class="view-all">View All <i class="fa-solid fa-chevron-right"></i></a>
+                </div>
+                
+                <div class="product-grid" id="recommendedGrid">
+                    <!-- Skeletons will be replaced by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- All Products -->
+        <section class="products-section alternate-bg" id="all-products">
+            <div class="section-container">
+                <div class="section-header" data-aos="fade-up">
+                    <div class="header-content">
+                        <h2>Fresh <span>Arrivals</span></h2>
+                        <p>Harvested today, delivered tomorrow.</p>
+                    </div>
+                </div>
+                
+                <div class="product-grid" id="productsGrid">
+                    <!-- Products will be generated by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Feature Callout -->
+        <section class="features" id="about">
+            <div class="section-container">
+                <div class="features-grid">
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="0">
+                        <div class="icon-box"><i class="fa-solid fa-tractor"></i></div>
+                        <h3>Direct from Source</h3>
+                        <p>No middlemen. You buy directly from local farmers, ensuring fair trade and fresh produce.</p>
+                    </div>
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="icon-box"><i class="fa-solid fa-leaf"></i></div>
+                        <h3>Certified Organic</h3>
+                        <p>All our partner farms use sustainable, organic and regenerative practices.</p>
+                    </div>
+                    <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="icon-box"><i class="fa-solid fa-truck-fast"></i></div>
+                        <h3>Next Day Delivery</h3>
+                        <p>Harvested at dawn, carefully packed, and delivered to your doorstep by next morning.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="#" class="brand text-large">
+                        <i class="fa-solid fa-leaf"></i> Agro<span>Market</span>
+                    </a>
+                    <p class="footer-desc">Reconnecting people with the food they eat and the farmers who grow it.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Shop</h4>
+                    <a href="#">Fresh Vegetables</a>
+                    <a href="#">Organic Fruits</a>
+                    <a href="#">Dairy & Eggs</a>
+                    <a href="#">Subscription Box</a>
+                </div>
+                <div class="footer-links">
+                    <h4>AgroMarket</h4>
+                    <a href="#">About Us</a>
+                    <a href="#">Our Farmers</a>
+                    <a href="#">Commitment to Quality</a>
+                    <a href="#">Careers</a>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Stay Updated</h4>
+                    <p>Get weekly updates on fresh harvests.</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="Your email address" aria-label="Email Address">
+                        <button class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 AgroMarket Marketplace. All rights reserved.</p>
+                <div class="legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
